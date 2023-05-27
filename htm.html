@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Code Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 50px;
+        }
+        #code {
+            font-size: 24px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        #generate-btn {
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Code Generator</h1>
+    <div id="code"></div>
+    <button id="generate-btn">Generate</button>
+
+    <script>
+        function generateRandomCode() {
+            var code = "RA-";
+            var characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            var randomCode = code;
+            for (var i = 0; i < 16; ++i) {
+                var randomIndex = Math.floor(Math.random() * characters.length);
+                randomCode += characters.charAt(randomIndex);
+            }
+            return randomCode;
+        }
+
+        var generateButton = document.getElementById("generate-btn");
+        var codeDiv = document.getElementById("code");
+
+        generateButton.addEventListener("click", function() {
+            var randomCode = generateRandomCode();
+            codeDiv.textContent = "Random Code: " + randomCode;
+        });
+    </script>
+</body>
+</html>
