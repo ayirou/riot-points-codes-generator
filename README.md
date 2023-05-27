@@ -1,0 +1,1 @@
+# riot-points-codes-generator
